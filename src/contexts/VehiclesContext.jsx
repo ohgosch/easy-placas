@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -53,10 +53,6 @@ export function VehiclesProvider({ children }) {
       setErrorPlateDelete(true);
     }
   }
-
-  useEffect(() => {
-    fetch();
-  }, [fetch]);
 
   const publicValue = {
     vehicles,

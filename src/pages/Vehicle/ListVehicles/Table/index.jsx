@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { Loader } from 'components/Loader';
 import { VehiclesContext } from 'contexts/VehiclesContext';
@@ -8,7 +8,11 @@ import { Status } from './Status';
 import { Container } from './styles';
 
 export function Table() {
-  const { vehicles, loading } = useContext(VehiclesContext);
+  const { vehicles, loading, update } = useContext(VehiclesContext);
+
+  useEffect(() => {
+    update();
+  }, [update]);
 
   return (
     <Container>

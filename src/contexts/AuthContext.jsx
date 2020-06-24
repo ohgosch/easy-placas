@@ -23,8 +23,8 @@ const initialState = {
 export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(initialState);
   const [loading, setLoading] = useState(false);
-  const { token, authenticated } = auth;
   const [error, setError] = useState(false);
+  const { token, authenticated } = auth;
 
   async function authenticate({ email, password }) {
     setLoading(true);
