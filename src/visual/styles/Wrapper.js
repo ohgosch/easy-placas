@@ -14,11 +14,11 @@ export const Wrapper = styled.div`
   
   ${tablet(css`
     width: 88%;
-    max-width: ${RESOLUTIONS.tablet.max};
+    max-width: 425px;
   `)}
   
   ${desktop(css`
     width: 90%;
-    max-width: ${RESOLUTIONS.desktop.min};
+    max-width: 425px;
   `)}
 `;

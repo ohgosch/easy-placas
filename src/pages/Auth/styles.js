@@ -11,7 +11,6 @@ export const Container = styled.main`
 export const Content = styled(Wrapper)`
   display: grid;
   grid-row-gap: 80px;
-  max-width: 425px !important;
 `;
 
 export const Logo = styled.img`
