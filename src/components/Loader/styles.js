@@ -6,7 +6,7 @@ import { pxToRem } from 'logic/pxToRem';
 import loader from 'assets/img/loader.svg';
 import { COLORS } from 'visual/constants';
 
-const rotate = keyframes`
+export const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }

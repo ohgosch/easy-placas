@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { TEXTS } from 'logic/texts';
 
@@ -7,7 +8,10 @@ import { ROUTES } from 'logic/constants';
 import { Container, Title, Logo, Content, Hiperlink } from './styles';
 
 export function Header() {
-  return (
+  const { pathname } = useLocation();
+  const isAuth = pathname === ROUTES.auth;
+
+  return !isAuth ? (
     <Container>
       <Content>
         <Title>{TEXTS.title}</Title>
@@ -16,6 +20,8 @@ export function Header() {
         </Hiperlink>
       </Content>
     </Container>
+  ) : (
+    <></>
   );
 }
 
