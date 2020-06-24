@@ -1,36 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 
-import { Warning } from 'visual/styles/Warning';
-import { TEXTS } from 'logic/texts';
-import { Button } from 'visual/styles/Button';
+import { VehiclesContext } from 'contexts/VehiclesContext';
 
-export function Status({ error, empty, update }) {
+import { StatusTimeout } from './StatusTimeout';
+import { StatusEmpty } from './StatusEmpty';
+
+export function Status() {
+  const { vehicles, error, loading } = useContext(VehiclesContext);
+  const empty = !vehicles.length && !error && !loading;
+
   return (
     <>
-      {empty && (
-        <>
-          <Warning>{TEXTS.vehicles.ListVehicles.errors.empty.message}</Warning>
-        </>
-      )}
-      {error && (
-        <>
-          <Warning>
-            {TEXTS.vehicles.ListVehicles.errors.timeout.message}
-          </Warning>
-          <Button onClick={update}>
-            {TEXTS.vehicles.ListVehicles.errors.timeout.refresh}
-          </Button>
-        </>
-      )}
+      {empty && <StatusEmpty />}
+      {error && <StatusTimeout />}
     </>
   );
 }
 
-Status.propTypes = {
-  error: PropTypes.bool.isRequired,
-  empty: PropTypes.bool.isRequired,
-  update: PropTypes.func.isRequired,
-};
+Status.propTypes = {};
 
 export default Status;
