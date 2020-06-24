@@ -6,13 +6,13 @@ import { StatusTimeout } from './StatusTimeout';
 import { StatusEmpty } from './StatusEmpty';
 
 export function Status() {
-  const { vehicles, error, loading } = useContext(VehiclesContext);
-  const empty = !vehicles.length && !error && !loading;
+  const { vehicles, errorList, loading } = useContext(VehiclesContext);
+  const empty = !vehicles.length && !errorList && !loading;
 
   return (
     <>
       {empty && <StatusEmpty />}
-      {error && <StatusTimeout />}
+      {errorList && <StatusTimeout />}
     </>
   );
 }

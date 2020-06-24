@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { Label } from 'visual/styles/Label';
 import { TEXTS } from 'logic/texts';
@@ -6,12 +7,27 @@ import { Input } from 'visual/styles/Input';
 import { Warning } from 'visual/styles/Warning';
 import { Button } from 'visual/styles/Button';
 
+import { valitePlate } from 'logic/validation';
+import { VehiclesContext } from 'contexts/VehiclesContext';
 import { Container, Form, FormItem } from './styles';
 
 export function CreateVehicle() {
+  const { submitCreateVehicle, errorPlateSubmit } = useContext(VehiclesContext);
+  const { register, handleSubmit, reset } = useForm();
+  const [errorValidation, setErrorValidation] = useState(false);
+
+  function formHandler({ plate }) {
+    setErrorValidation(false);
+    const hasError = valitePlate(plate);
+
+    if (hasError) return setErrorValidation(true);
+
+    return submitCreateVehicle(plate, reset);
+  }
+
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit(formHandler)}>
         <FormItem>
           <Label htmlFor="add-vehicle-input">
             {TEXTS.vehicles.addVehicle.addVehicleForm.label}
@@ -19,10 +35,17 @@ export function CreateVehicle() {
           <Input
             placeholder={TEXTS.vehicles.addVehicle.addVehicleForm.placeholder}
             id="add-vehicle-input"
+            name="plate"
+            ref={register}
             dark
           />
         </FormItem>
-        <Warning>{TEXTS.vehicles.addVehicle.errors.plateWrong}</Warning>
+        {errorValidation && (
+          <Warning>{TEXTS.vehicles.addVehicle.errors.plateWrong}</Warning>
+        )}
+        {errorPlateSubmit && (
+          <Warning>{TEXTS.vehicles.addVehicle.errors.createPlateAPI}</Warning>
+        )}
         <Button type="submit">{TEXTS.vehicles.addVehicle.submit}</Button>
       </Form>
     </Container>

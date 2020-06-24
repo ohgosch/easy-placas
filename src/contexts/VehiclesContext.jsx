@@ -1,7 +1,7 @@
 import React, { createContext, useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { getVehicles } from 'logic/requests/vehicle';
+import { getVehicles, createVehicle } from 'logic/requests/vehicle';
 
 export const VehiclesContext = createContext({});
 
@@ -9,22 +9,34 @@ const defaultVehicles = [];
 
 export function VehiclesProvider({ children }) {
   const [vehicles, setVehicles] = useState(defaultVehicles);
-  const [error, setError] = useState(false);
+  const [errorList, setErrorList] = useState(false);
+  const [errorPlateSubmit, setErrorPlateSubmit] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const fetch = useCallback(async () => {
     setLoading(true);
-    setError(false);
+    setErrorList(false);
 
     try {
       const { data } = await getVehicles();
       setVehicles(data);
     } catch (errors) {
-      setError(true);
+      setErrorList(true);
     }
 
     setLoading(false);
   }, []);
+
+  async function submitCreateVehicle(plate, successCallback) {
+    setErrorPlateSubmit(false);
+    try {
+      await createVehicle(plate);
+      if (successCallback) successCallback();
+      fetch();
+    } catch (errors) {
+      setErrorPlateSubmit(true);
+    }
+  }
 
   useEffect(() => {
     fetch();
@@ -32,9 +44,11 @@ export function VehiclesProvider({ children }) {
 
   const publicValue = {
     vehicles,
-    error,
+    errorList,
     loading,
+    errorPlateSubmit,
     update: fetch,
+    submitCreateVehicle,
   };
 
   return (

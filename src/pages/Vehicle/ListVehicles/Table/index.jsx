@@ -13,8 +13,8 @@ export function Table() {
   return (
     <Container>
       <Status />
-      {vehicles.map(({ id, title }) => (
-        <Row key={id} id={id} title={title} />
+      {vehicles.map(({ id, plate }) => (
+        <Row key={id} id={id} title={plate} />
       ))}
       {loading && <Loader />}
     </Container>

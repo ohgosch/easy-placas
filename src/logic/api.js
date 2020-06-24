@@ -6,15 +6,18 @@ import { getAuthByStorage } from 'contexts/AuthContext';
  * Get API base
  */
 export function API() {
-  let token;
+  let headers = {};
   const auth = getAuthByStorage();
-  if (auth) token = auth.token;
+
+  if (auth) {
+    headers = {
+      Authorization: `Bearer ${auth.token}`,
+    }
+  }
 
   return axios.create({
     baseURL: process.env.REACT_APP_BASE_API,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
   });
 }
 
