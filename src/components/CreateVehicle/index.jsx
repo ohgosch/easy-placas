@@ -8,25 +8,25 @@ import { Button } from 'visual/styles/Button';
 
 import { Container, Form, FormItem } from './styles';
 
-export function CreateCar() {
+export function CreateVehicle() {
   return (
     <Container>
       <Form>
         <FormItem>
-          <Label htmlFor="add-car-input">
-            {TEXTS.cars.addCar.addCarForm.label}
+          <Label htmlFor="add-vehicle-input">
+            {TEXTS.vehicles.addVehicle.addVehicleForm.label}
           </Label>
           <Input
-            placeholder={TEXTS.cars.addCar.addCarForm.placeholder}
-            id="add-car-input"
+            placeholder={TEXTS.vehicles.addVehicle.addVehicleForm.placeholder}
+            id="add-vehicle-input"
             dark
           />
         </FormItem>
-        <Warning>{TEXTS.cars.addCar.errors.plateWrong}</Warning>
-        <Button type="submit">{TEXTS.cars.addCar.submit}</Button>
+        <Warning>{TEXTS.vehicles.addVehicle.errors.plateWrong}</Warning>
+        <Button type="submit">{TEXTS.vehicles.addVehicle.submit}</Button>
       </Form>
     </Container>
   );
 }
 
-export default CreateCar;
+export default CreateVehicle;

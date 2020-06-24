@@ -38,7 +38,7 @@ export function Auth() {
               placeholder={TEXTS.auth.email.placeholder}
               type="email"
               name="email"
-              defaultValue="frontend-dev@easycarros.com"
+              defaultValue="frontend-dev@easyvehicleros.com"
               ref={register}
               disabled={loading}
               required

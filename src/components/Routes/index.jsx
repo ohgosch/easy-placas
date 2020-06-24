@@ -3,7 +3,7 @@ import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 
 import { ROUTES } from 'logic/constants';
 import { Auth } from 'pages/Auth';
-import { Cars } from 'pages/Cars';
+import { Vehicle } from 'pages/Vehicle';
 import { AuthContext } from 'contexts/AuthContext';
 
 export function Routes() {
@@ -34,7 +34,7 @@ export function Routes() {
           <Auth />
         </Route>
         <Route path={ROUTES.main}>
-          <Cars />
+          <Vehicle />
         </Route>
       </Switch>
     </>

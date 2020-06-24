@@ -15,9 +15,9 @@ export const TEXTS = {
       notAuthorized: 'Usuário ou senha incorretos. Verifique e tente novamente.',
     },
   },
-  cars: {
-    addCar: {
-      addCarForm: {
+  vehicles: {
+    addVehicle: {
+      addVehicleForm: {
         label: 'Adicionar novo veículo',
         placeholder: 'Placa',
       },
@@ -27,13 +27,16 @@ export const TEXTS = {
         createPlateAPI: 'Tivemos um problema interno durante o cadastro. Tente novamente.',
       }
     },
-    listCars: {
+    ListVehicles: {
       title: 'Veículos',
-      deleteCar: (plate) => `Deletar o carro da placa ${plate}`,
+      deleteVehicle: (plate) => `Deletar o carro da placa ${plate}`,
       errors: {
         timeout: {
           message: 'Não foi possível buscar a lista de automóveis.',
           refresh: 'Buscar lista novamente',
+        },
+        empty: {
+          message: 'Não há veículos cadastrados.',
         },
       },
     },
