@@ -10,3 +10,7 @@ export async function createVehicle(plate) {
     plate
   });
 }
+
+export async function deleteVehicle(id) {
+  return await API().delete(`/vehicle/${id}`);
+}

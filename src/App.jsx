@@ -6,6 +6,7 @@ import { Header } from 'components/Header';
 import { Routes } from 'components/Routes';
 import { AuthProvider } from 'contexts/AuthContext';
 import { ModalProvider } from 'contexts/ModalContext';
+import { VehiclesProvider } from 'contexts/VehiclesContext';
 
 export function App() {
   return (
@@ -13,10 +14,12 @@ export function App() {
       <GlobalStyle />
       <BrowserRouter>
         <AuthProvider>
-          <ModalProvider>
-            <Header />
-            <Routes />
-          </ModalProvider>
+          <VehiclesProvider>
+            <ModalProvider>
+              <Header />
+              <Routes />
+            </ModalProvider>
+          </VehiclesProvider>
         </AuthProvider>
       </BrowserRouter>
     </>

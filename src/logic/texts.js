@@ -2,6 +2,9 @@ export const TEXTS = {
   title: 'Easy Placas',
   logoAlt: 'Logo do Easy Placas',
   loading: 'Carregando',
+  modal: {
+    close: 'Fechar modal'
+  },
   auth: {
     title: 'Autenticação',
     email: {
@@ -38,6 +41,11 @@ export const TEXTS = {
         empty: {
           message: 'Não há veículos cadastrados.',
         },
+      },
+      deleteDialog: {
+        title: (plate) => `Realmente deseja excluir o veículo ${plate}?`,
+        confirm: 'Excluir',
+        cancel: 'Cancelar',
       },
     },
   }

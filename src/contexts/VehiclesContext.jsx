@@ -1,7 +1,11 @@
 import React, { createContext, useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { getVehicles, createVehicle } from 'logic/requests/vehicle';
+import {
+  getVehicles,
+  createVehicle,
+  deleteVehicle,
+} from 'logic/requests/vehicle';
 
 export const VehiclesContext = createContext({});
 
@@ -11,6 +15,7 @@ export function VehiclesProvider({ children }) {
   const [vehicles, setVehicles] = useState(defaultVehicles);
   const [errorList, setErrorList] = useState(false);
   const [errorPlateSubmit, setErrorPlateSubmit] = useState(false);
+  const [errorPlateDelete, setErrorPlateDelete] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const fetch = useCallback(async () => {
@@ -38,6 +43,17 @@ export function VehiclesProvider({ children }) {
     }
   }
 
+  async function submitDeleteVehicle(id, successCallback) {
+    setErrorPlateDelete(false);
+    try {
+      await deleteVehicle(id);
+      fetch();
+      if (successCallback) successCallback();
+    } catch (errors) {
+      setErrorPlateDelete(true);
+    }
+  }
+
   useEffect(() => {
     fetch();
   }, [fetch]);
@@ -47,8 +63,10 @@ export function VehiclesProvider({ children }) {
     errorList,
     loading,
     errorPlateSubmit,
+    errorPlateDelete,
     update: fetch,
     submitCreateVehicle,
+    submitDeleteVehicle,
   };
 
   return (

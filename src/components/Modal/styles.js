@@ -1,8 +1,8 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-import { tabletDesktop, mobile } from 'visual/medias';
 import { COLORS } from 'visual/constants';
 import { pxToRem } from 'logic/pxToRem';
+import { Wrapper } from 'visual/styles/Wrapper';
 
 const fadeIn = keyframes`
   from {
@@ -41,7 +41,7 @@ export const CloseOverlay = styled.button`
   width: 100%;
 `;
 
-export const Content = styled.section`
+export const Content = styled(Wrapper)`
   background-color: ${COLORS.white};
   position: relative;
   overflow-y: auto;
@@ -49,17 +49,7 @@ export const Content = styled.section`
   min-height: ${pxToRem(50)};
   padding: 50px;
   width: 100%;
-  ${tabletDesktop(css`
-    border-radius: 8px;
-    max-height: 90vh;
-    max-width: ${pxToRem(450)};
-  `)}
-  ${mobile(css`
-    height: 100vh;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-  `)}
+  border-radius: 8px;
+  max-height: 90vh;
+  max-width: ${pxToRem(450)};
 `;
