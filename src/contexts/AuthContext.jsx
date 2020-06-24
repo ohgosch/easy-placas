@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState(false);
   const { token, authenticated } = auth;
 
-  async function authenticate({ email, password }) {
+  async function login({ email, password }) {
     setLoading(true);
     try {
       setError(false);
@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
     authenticated,
     loading,
     logout,
-    authenticate,
+    login,
   };
 
   return (

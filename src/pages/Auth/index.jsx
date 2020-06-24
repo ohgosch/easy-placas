@@ -12,12 +12,12 @@ import logoImg from 'assets/img/logo-white.svg';
 import { Container, Logo, Title, Content, Form, Inputs } from './styles';
 
 export function Auth() {
-  const { error, authenticate, loading } = useContext(AuthContext);
+  const { error, login, loading } = useContext(AuthContext);
   const { setBlue, setNotBlue } = useContext(ThemeContext);
   const { register, handleSubmit } = useForm();
 
   function formHandler(form) {
-    authenticate(form);
+    login(form);
   }
 
   useEffect(() => {
@@ -37,7 +37,6 @@ export function Auth() {
               placeholder={TEXTS.auth.email.placeholder}
               type="email"
               name="email"
-              defaultValue="frontend-dev@easycarros.com"
               ref={register}
               disabled={loading}
               required
@@ -46,7 +45,6 @@ export function Auth() {
               placeholder={TEXTS.auth.password.placeholder}
               type="password"
               name="password"
-              defaultValue="Fr0nt3ndR0ck5!"
               disabled={loading}
               ref={register}
               required
