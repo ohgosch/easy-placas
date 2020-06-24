@@ -20,12 +20,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.js[x]'"
+    "lint": "lint-staged",
+    "test:all": "CI=true react-scripts test --silent && lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run test:all"
     }
+  },
+  "lint-staged": {
+    "src/**/*.js[x]": [
+      "eslint --fix"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

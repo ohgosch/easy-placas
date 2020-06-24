@@ -7,7 +7,7 @@ import { Input } from 'visual/styles/Input';
 import { Warning } from 'visual/styles/Warning';
 import { Button } from 'visual/styles/Button';
 
-import { valitePlate } from 'logic/validation';
+import { validatePlate } from 'logic/validation';
 import { VehiclesContext } from 'contexts/VehiclesContext';
 import { Container, Form, FormItem } from './styles';
 
@@ -18,7 +18,7 @@ export function CreateVehicle() {
 
   function formHandler({ plate }) {
     setErrorValidation(false);
-    const hasError = valitePlate(plate);
+    const hasError = validatePlate(plate);
 
     if (hasError) return setErrorValidation(true);
 
