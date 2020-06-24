@@ -2,6 +2,9 @@ export const TEXTS = {
   title: 'Easy Placas',
   logoAlt: 'Logo do Easy Placas',
   loading: 'Carregando',
+  header: {
+    logout: 'Sair da aplicação',
+  },
   modal: {
     close: 'Fechar modal'
   },

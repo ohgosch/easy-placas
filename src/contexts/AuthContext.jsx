@@ -46,11 +46,17 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }
 
+  async function logout() {
+    setAuthInStorage({});
+    setAuth({});
+  }
+
   const publicValue = {
     token,
     error,
     authenticated,
     loading,
+    logout,
     authenticate,
   };
 

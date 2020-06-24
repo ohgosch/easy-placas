@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { TEXTS } from 'logic/texts';
 
 import logoSvg from 'assets/img/logo-white.svg';
 import { ROUTES } from 'logic/constants';
-import { Container, Title, Logo, Content, Hiperlink } from './styles';
+import { AuthContext } from 'contexts/AuthContext';
+import {
+  Container,
+  Title,
+  Logo,
+  Content,
+  Hiperlink,
+  LogoutButton,
+} from './styles';
 
 export function Header() {
   const { pathname } = useLocation();
+  const { logout } = useContext(AuthContext);
   const isAuth = pathname === ROUTES.auth;
 
   return !isAuth ? (
@@ -18,6 +27,7 @@ export function Header() {
         <Hiperlink to={ROUTES.main}>
           <Logo src={logoSvg} alt={TEXTS.logoAlt} />
         </Hiperlink>
+        <LogoutButton onClick={logout}>{TEXTS.header.logout}</LogoutButton>
       </Content>
     </Container>
   ) : (
