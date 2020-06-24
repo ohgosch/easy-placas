@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 import { Ubuntu } from 'visual/fonts';
 import { COLORS } from 'visual/constants';
@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
   body, html {
     min-height: 100vh;
     background-color: ${COLORS.greyLight};
+
+    ${p => p.theme.isBlue && css`
+      background-color: ${COLORS.primary};
+    `}
   }
   * {
     margin: 0;

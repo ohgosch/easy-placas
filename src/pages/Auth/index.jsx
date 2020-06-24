@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ThemeContext } from 'styled-components';
 import { useForm } from 'react-hook-form';
 
 import { TEXTS } from 'logic/texts';
@@ -8,27 +9,25 @@ import { Warning } from 'visual/styles/Warning';
 import { AuthContext } from 'contexts/AuthContext';
 
 import logoImg from 'assets/img/logo-white.svg';
-import {
-  Container,
-  Logo,
-  Title,
-  Content,
-  Form,
-  Inputs,
-  GlobalBackground,
-} from './styles';
+import { Container, Logo, Title, Content, Form, Inputs } from './styles';
 
 export function Auth() {
   const { error, authenticate, loading } = useContext(AuthContext);
+  const { setBlue, setNotBlue } = useContext(ThemeContext);
   const { register, handleSubmit } = useForm();
 
   function formHandler(form) {
     authenticate(form);
   }
 
+  useEffect(() => {
+    setBlue();
+
+    return () => setNotBlue();
+  }, [setBlue, setNotBlue]);
+
   return (
     <Container>
-      <GlobalBackground />
       <Content>
         <Title>{TEXTS.auth.title}</Title>
         <Logo src={logoImg} alt={TEXTS.logoAlt} />

@@ -7,10 +7,11 @@ import { Routes } from 'components/Routes';
 import { AuthProvider } from 'contexts/AuthContext';
 import { ModalProvider } from 'contexts/ModalContext';
 import { VehiclesProvider } from 'contexts/VehiclesContext';
+import { ThemeManager } from 'components/ThemeManager';
 
 export function App() {
   return (
-    <>
+    <ThemeManager>
       <GlobalStyle />
       <BrowserRouter>
         <AuthProvider>
@@ -22,7 +23,7 @@ export function App() {
           </VehiclesProvider>
         </AuthProvider>
       </BrowserRouter>
-    </>
+    </ThemeManager>
   );
 }
 
