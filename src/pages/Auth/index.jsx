@@ -1,16 +1,25 @@
 import React from 'react';
 
 import { TEXTS } from 'logic/texts';
-
-import logoImg from 'assets/img/logo_white.svg';
 import { Input } from 'visual/styles/Input';
 import { Button } from 'visual/styles/Button';
 import { Warning } from 'visual/styles/Warning';
-import { Container, Logo, Title, Content, Form, Inputs } from './styles';
+
+import logoImg from 'assets/img/logo-white.svg';
+import {
+  Container,
+  Logo,
+  Title,
+  Content,
+  Form,
+  Inputs,
+  GlobalBackground,
+} from './styles';
 
 export function Auth() {
   return (
     <Container>
+      <GlobalBackground />
       <Content>
         <Title>{TEXTS.auth.title}</Title>
         <Logo src={logoImg} alt={TEXTS.logoAlt} />

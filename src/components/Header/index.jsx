@@ -1,12 +1,20 @@
 import React from 'react';
 
 import { TEXTS } from 'logic/texts';
-import { Container, Title } from './styles';
+
+import logoSvg from 'assets/img/logo-white.svg';
+import { ROUTES } from 'logic/constants';
+import { Container, Title, Logo, Content, Hiperlink } from './styles';
 
 export function Header() {
   return (
     <Container>
-      <Title>{TEXTS.title}</Title>
+      <Content>
+        <Title>{TEXTS.title}</Title>
+        <Hiperlink to={ROUTES.main}>
+          <Logo src={logoSvg} alt={TEXTS.logoAlt} />
+        </Hiperlink>
+      </Content>
     </Container>
   );
 }

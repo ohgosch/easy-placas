@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { Wrapper } from 'visual/styles/Wrapper';
+import { COLORS } from 'visual/constants';
 
 export const Container = styled.main`
   display: flex;
@@ -32,4 +33,10 @@ export const Form = styled.form`
 export const Inputs = styled.div`
   display: grid;
   grid-row-gap: 20px;
+`;
+
+export const GlobalBackground = createGlobalStyle`
+  body, html {
+    background-color: ${COLORS.primary};
+  }
 `;

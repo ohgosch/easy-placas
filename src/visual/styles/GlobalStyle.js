@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body, html {
     min-height: 100vh;
-    background-color: ${COLORS.primary};
+    background-color: ${COLORS.greyLight};
   }
   * {
     margin: 0;

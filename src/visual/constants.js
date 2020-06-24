@@ -3,6 +3,8 @@ export const COLORS = {
   primaryDark: '#004A77',
   orange: '#FF8A00',
   greyLight: '#F1F1F1',
+  dark: '#505050',
+  white: '#FFFFFF',
 };
 
 export const RESOLUTIONS = {
