@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { COLORS } from 'visual/constants';
-import { pxToRem } from 'logic/pxToRem';
 import { TEXTS } from 'logic/texts';
+import { pxToRem } from 'logic/pxToRem';
+import { COLORS } from 'visual/constants';
 import { rotate } from 'components/Loader/styles';
 
 import loader from 'assets/img/loader.svg';

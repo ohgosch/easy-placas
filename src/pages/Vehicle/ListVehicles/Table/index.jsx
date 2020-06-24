@@ -18,7 +18,7 @@ export function Table() {
     <Container>
       <Status />
       {vehicles.map(({ id, plate }) => (
-        <Row key={id} id={id} title={plate} />
+        <Row key={id} id={id} plate={plate} />
       ))}
       {loading && <Loader />}
     </Container>

@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
       background-color: ${COLORS.primary};
     `}
   }
+
   * {
     margin: 0;
     padding: 0;
@@ -21,9 +22,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
   }
+
   button {
     cursor: pointer;
   }
+
   img {
     max-width: 100%;
     display: block;

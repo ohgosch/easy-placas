@@ -1,24 +1,24 @@
 import React, { useContext } from 'react';
 
 import { TEXTS } from 'logic/texts';
-import { ModalContext } from 'contexts/ModalContext';
 import { VehicleProp } from 'logic/propTypes/VehicleProp';
+import { ModalContext } from 'contexts/ModalContext';
 
-import { Container, Title, Delete } from './styles';
 import { DeleteDialog } from '../DeleteDialog';
+import { Container, Title, Delete } from './styles';
 
-export function Row({ id, title }) {
+export function Row({ id, plate }) {
   const { openModal } = useContext(ModalContext);
 
   function deleteHandler() {
-    openModal(() => <DeleteDialog id={id} title={title} />);
+    openModal(() => <DeleteDialog id={id} plate={plate} />);
   }
 
   return (
     <Container>
-      <Title>{title}</Title>
+      <Title>{plate}</Title>
       <Delete onClick={deleteHandler}>
-        {TEXTS.vehicles.ListVehicles.deleteVehicle(title)}
+        {TEXTS.vehicles.ListVehicles.deleteVehicle(plate)}
       </Delete>
     </Container>
   );

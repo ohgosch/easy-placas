@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react';
 
 import { TEXTS } from 'logic/texts';
-import { Button } from 'visual/styles/Button';
+import { VehicleProp } from 'logic/propTypes/VehicleProp';
 import { VehiclesContext } from 'contexts/VehiclesContext';
 import { ModalContext } from 'contexts/ModalContext';
-import { VehicleProp } from 'logic/propTypes/VehicleProp';
+import { Button } from 'visual/styles/Button';
 
 import { Container, Title, Buttons } from './styles';
 
 export function DeleteDialog({ id, plate }) {
-  const { closeModal } = useContext(ModalContext);
   const { submitDeleteVehicle } = useContext(VehiclesContext);
+  const { closeModal } = useContext(ModalContext);
   const [loading, setLoading] = useState(false);
 
   async function deleteHandler() {

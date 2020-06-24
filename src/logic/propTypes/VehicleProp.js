@@ -5,5 +5,5 @@ export const VehicleProp = {
     PropTypes.string,
     PropTypes.number,
   ]),
-  title: PropTypes.string.isRequired,
+  plate: PropTypes.string.isRequired,
 };

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import deleteIcon from 'assets/img/icon-trash.svg';
-
 import { COLORS } from 'visual/constants';
 import { pxToRem } from 'logic/pxToRem';
+
+import deleteIcon from 'assets/img/icon-trash.svg';
 
 export const Container = styled.article`
   background-color: ${COLORS.white};

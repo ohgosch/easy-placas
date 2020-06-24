@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "lint-staged",
+    "lint": "eslint 'src/**/*.js[x]'",
     "test:all": "CI=true react-scripts test --silent && lint-staged"
   },
   "husky": {
