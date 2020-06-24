@@ -3,11 +3,13 @@ import React from 'react';
 import { CreateVehicle } from 'components/CreateVehicle';
 import { ListVehicles } from 'pages/Vehicle/ListVehicles';
 
-import { Container, Content } from './styles';
+import { TEXTS } from 'logic/texts';
+import { Container, Content, Title } from './styles';
 
 export function Vehicle() {
   return (
     <Container>
+      <Title>{TEXTS.vehicles.title}</Title>
       <Content>
         <CreateVehicle />
         <ListVehicles />

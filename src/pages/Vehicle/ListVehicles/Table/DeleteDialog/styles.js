@@ -8,7 +8,7 @@ export const Container = styled.div`
   grid-row-gap: ${pxToRem(25)};
 `;
 
-export const Title = styled.h5`
+export const Title = styled.h1`
   font-style: normal;
   font-weight: 500;
   font-size: ${pxToRem(18)};

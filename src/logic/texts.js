@@ -22,6 +22,7 @@ export const TEXTS = {
     },
   },
   vehicles: {
+    title: 'Gestão de Carros',
     addVehicle: {
       addVehicleForm: {
         label: 'Adicionar novo veículo',

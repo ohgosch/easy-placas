@@ -37,6 +37,7 @@ export function CreateVehicle() {
             id="add-vehicle-input"
             name="plate"
             ref={register}
+            required
             dark
           />
         </FormItem>

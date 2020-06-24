@@ -31,7 +31,9 @@ export function Header() {
       </Content>
     </Container>
   ) : (
-    <></>
+    <>
+      <Title>{TEXTS.title}</Title>
+    </>
   );
 }
 
