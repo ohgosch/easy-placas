@@ -5,6 +5,7 @@ import { GlobalStyle } from 'visual/styles/GlobalStyle';
 import { Header } from 'components/Header';
 import { Routes } from 'components/Routes';
 import { AuthProvider } from 'contexts/AuthContext';
+import { ModalProvider } from 'contexts/ModalContext';
 
 export function App() {
   return (
@@ -12,8 +13,10 @@ export function App() {
       <GlobalStyle />
       <BrowserRouter>
         <AuthProvider>
-          <Header />
-          <Routes />
+          <ModalProvider>
+            <Header />
+            <Routes />
+          </ModalProvider>
         </AuthProvider>
       </BrowserRouter>
     </>

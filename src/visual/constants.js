@@ -4,6 +4,7 @@ export const COLORS = {
   orange: '#FF8A00',
   greyLight: '#F1F1F1',
   dark: '#505050',
+  darkAlpha: (opacity) => `rgba(80, 80, 80, ${opacity})`,
   white: '#FFFFFF',
 };
 
